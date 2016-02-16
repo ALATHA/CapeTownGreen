@@ -23,3 +23,11 @@ else {
 	return "";
 }
 };
+var taxiLocationCounter=1;
+var counter < 9 && > 1;
+if(keycode==="right"){
+	return taxiLocationCounter +1;
+}
+if(keycode==="left"){
+	return taxiLocationCounter -1;
+}
