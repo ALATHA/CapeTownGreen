@@ -2,10 +2,11 @@ var body = document.querySelector("body")
 
 body.onkeydown = function(e){
    // ? e.keyCode - will capture the key codes
-   var displayMessage=function(keyCode){
-   	displayMessage(e.keyCode);
-   }
-};
+   var keyName = keyCodeName(e.keyCode);
+ 	displayMessage(keyName); 
+ };
+
+
 var keyCodeName=function(keycode){
 if(keycode===37){
 	return "left";
@@ -23,11 +24,11 @@ else {
 	return "";
 }
 };
-var taxiLocationCounter=1;
-var counter < 9 && > 1;
-if(keycode==="right"){
-	return taxiLocationCounter +1;
-}
-if(keycode==="left"){
-	return taxiLocationCounter -1;
-}
+// var taxiLocationCounter=1;
+//  var counter = > 9 && < 1;
+// if(keycode==="right"){
+// 	return taxiLocationCounter +1;
+// }
+// if(keycode==="left"){
+// 	return taxiLocationCounter -1;
+// }
