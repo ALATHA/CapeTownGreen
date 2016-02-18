@@ -6,6 +6,22 @@ body.onkeydown = function(e){
  	displayMessage(keyName); 
  };
 
+var taxiLocationCounter=function(){
+	 var i=0;
+	 i=i+1;
+	 if(keyCodeName==="right"){
+		taxiLocationCounter=taxiLocationCounter+1;
+	}
+	else if(keyCodeName==="left"){
+		taxiLocationCounter=taxiLocationCounter-1;
+	}
+
+}
+var createLocationClass=function(number){
+		if(number===1){
+			return "slot-one-of-nine";
+		}
+	}
 
 var keyCodeName=function(keycode){
 if(keycode===37){
@@ -24,11 +40,4 @@ else {
 	return "";
 }
 };
-// var taxiLocationCounter=1;
-//  var counter = > 9 && < 1;
-// if(keycode==="right"){
-// 	return taxiLocationCounter +1;
-// }
-// if(keycode==="left"){
-// 	return taxiLocationCounter -1;
-// }
+
