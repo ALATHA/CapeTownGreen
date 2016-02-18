@@ -5,12 +5,15 @@ var body = document.querySelector("body")
 body.onkeydown = function(e){
    // ? e.keyCode - will capture the key codes
    var keyName = keyCodeName(e.keyCode);
- 	displayMessage(keyName); 
+ 	displayMessage(taxiLocationCounter);
+ 	var myClass=createLocationClass(taxiLocationCounter);
+ 	displayMessage(myClass);
+
  };
 
-var taxiLocationCounter=function(){
-	 var i=0;
-	 i=i+1;
+var taxiLocationCounter=1;
+	  var i=0;
+	  i=i+1;
 	 if(keyCodeName==="right"){
 		taxiLocationCounter=taxiLocationCounter+1;
 	}
@@ -18,10 +21,15 @@ var taxiLocationCounter=function(){
 		taxiLocationCounter=taxiLocationCounter-1;
 	}
 
-}
 var createLocationClass=function(number){
 		if(number===1){
 			return "slot-one-of-nine";
+		}
+		if(number===5){
+			return "slot-five-of-nine";
+		}
+		if(number===9){
+			return "slot-nine-of-nine";
 		}
 	}
 
@@ -40,6 +48,14 @@ if(keycode===40){
 }
 else {
 	return "";
-}
+	};
+};
+
+ function moveForward(){
+	var currentLocation = createLocationClass(taxiLocationCounter);
+	taxiLocationCounter+1;
+	var newLocation = createLocationClass(taxiLocationCounter);
+	moveTaxi(currentLocation,newLocation);
+
 };
 
