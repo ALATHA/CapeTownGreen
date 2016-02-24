@@ -4,14 +4,14 @@ var taxiLocationCounter=1;
 //listen for the keydown event
 body.onkeydown = function(e){
    // ? e.keyCode - will capture the key codes
-
+	var trafficLight = new TrafficLight(taxiLocationCounter);
    var keyName = keyCodeName(e.keyCode);
  	displayMessage(taxiLocationCounter);
  	var myClass=createLocationClass(taxiLocationCounter);
  	displayMessage(myClass);
 
- 	if(keyName==="right"){
- 		
+ 	if((keyName==="right") && (trafficLight.color()==="green")){
+
  		moveForward();
  	}
  	else if(keyName==="left"){
@@ -27,12 +27,15 @@ body.onkeydown = function(e){
 		taxiLocationCounter=taxiLocationCounter--;
 	}
 
-	var trafficLight = new TrafficLight(taxiLocationCounter);
+	
 	if(e.keyCode===38){
 		trafficLight.makeRed();
 	}
 	else if(e.keyCode===40){
 		trafficLight.makeGreen();
+	}
+	if(trafficLight.color==="red"){
+		moveForward();
 	}
 
 };
@@ -121,8 +124,8 @@ var createTrafficLightClass=function(number){
 
 function TrafficLight(x){
 		var className = createTrafficLightClass(x);
-		
 		var trafficLightElement=document.querySelector(className);
+
  		this.makeGreen=function(){
 		trafficLightElement.classList.remove("lights-slowdown");
  	 	trafficLightElement.classList.remove("lights-stop");
